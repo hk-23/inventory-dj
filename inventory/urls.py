@@ -17,13 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.shortcuts import render
 
+#should be moved to views.py
+def homepage(request):
+	return render(request,'index.html')
+
 urlpatterns = [
 	path('',homepage,name="homepage"),
     path('admin/', admin.site.urls),
     #url patterns
     path('account/',include('userapp.urls')),
 ]
-
-#should be moved to views.py
-def homepage(request):
-	return render(request,'index.html')
